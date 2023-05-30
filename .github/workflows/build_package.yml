@@ -38,4 +38,4 @@ jobs:
 
     - name: Upload JAR to S3
       run: |
-        aws s3 cp target/*.jar s3://solal-pub/
+        aws s3 cp target/dasniko.keycloak-2fa-sms-authenticator.jar s3://solal-pub/dasniko.keycloak-2fa-sms-authenticator.jar
