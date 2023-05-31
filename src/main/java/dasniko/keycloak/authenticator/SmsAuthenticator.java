@@ -1,9 +1,11 @@
 package dasniko.keycloak.authenticator;
 
 import dasniko.keycloak.authenticator.gateway.SmsServiceFactory;
+import org.jboss.resteasy.spi.HttpRequest;
 import org.keycloak.authentication.AuthenticationFlowContext;
 import org.keycloak.authentication.AuthenticationFlowError;
 import org.keycloak.authentication.Authenticator;
+import org.keycloak.common.util.ResteasyProvider;
 import org.keycloak.common.util.SecretGenerator;
 import org.keycloak.models.AuthenticationExecutionModel;
 import org.keycloak.models.AuthenticatorConfigModel;
@@ -23,6 +25,9 @@ public class SmsAuthenticator implements Authenticator {
 
 	private static final String MOBILE_NUMBER_FIELD = "mobile_number";
 	private static final String TPL_CODE = "login-sms.ftl";
+
+	private ResteasyProvider resteasyProvider;
+
 
 	@Override
 	public void authenticate(AuthenticationFlowContext context) {
@@ -59,7 +64,7 @@ public class SmsAuthenticator implements Authenticator {
 
 	@Override
 	public void action(AuthenticationFlowContext context) {
-		String enteredCode = context.getHttpRequest().getDecodedFormParameters().getFirst("code");
+		String enteredCode = resteasyProvider.getContextData(HttpRequest.class).getDecodedFormParameters().getFirst("code");
 
 		AuthenticationSessionModel authSession = context.getAuthenticationSession();
 		String code = authSession.getAuthNote("code");
@@ -115,4 +120,7 @@ public class SmsAuthenticator implements Authenticator {
 	public void close() {
 	}
 
+	public void setResteasyProvider(ResteasyProvider resteasyProvider) {
+		this.resteasyProvider = resteasyProvider;
+	}
 }
