@@ -26,8 +26,6 @@ public class SmsAuthenticator implements Authenticator {
 	private static final String MOBILE_NUMBER_FIELD = "mobile_number";
 	private static final String TPL_CODE = "login-sms.ftl";
 
-	private ResteasyProvider resteasyProvider;
-
 
 	@Override
 	public void authenticate(AuthenticationFlowContext context) {
@@ -64,7 +62,7 @@ public class SmsAuthenticator implements Authenticator {
 
 	@Override
 	public void action(AuthenticationFlowContext context) {
-		String enteredCode = resteasyProvider.getContextData(HttpRequest.class).getDecodedFormParameters().getFirst("code");
+		String enteredCode = context.getHttpRequest().getDecodedFormParameters().getFirst("code");
 
 		AuthenticationSessionModel authSession = context.getAuthenticationSession();
 		String code = authSession.getAuthNote("code");
@@ -118,9 +116,5 @@ public class SmsAuthenticator implements Authenticator {
 
 	@Override
 	public void close() {
-	}
-
-	public void setResteasyProvider(ResteasyProvider resteasyProvider) {
-		this.resteasyProvider = resteasyProvider;
 	}
 }

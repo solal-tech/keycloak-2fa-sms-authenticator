@@ -69,7 +69,6 @@ public class SmsAuthenticatorFactory implements AuthenticatorFactory {
 
 	@Override
 	public Authenticator create(KeycloakSession session) {
-		SINGLETON.setResteasyProvider(Resteasy.getProvider());
 		return SINGLETON;
 	}
 
