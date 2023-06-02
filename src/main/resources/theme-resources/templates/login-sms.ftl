@@ -1,12 +1,15 @@
 <#import "template.ftl" as layout>
+<#import "components/button.ftl" as button>
+<#import "components/button-group.ftl" as buttonGroup>
 <@layout.registrationLayout displayInfo=true; section>
 	<#if section = "header">
 		${msg("smsAuthTitle",realm.displayName)}
 	<#elseif section = "form">
 		<form id="kc-sms-code-login-form" class="${properties.kcFormClass!}" action="${url.loginAction}" method="post">
 			<div class="${properties.kcFormGroupClass!}">
-				<div class="${properties.kcLabelWrapperClass!}">
-					<label for="code" class="${properties.kcLabelClass!}">${msg("smsAuthLabel")}</label>
+				<div class="prose">
+					<div class="lead">${msg("smsAuthLabel")} - SMS</div>
+					<div class="headings:h2 text-gray-500">${msg("smsAuthInfo")}</div>
 				</div>
 				<div class="${properties.kcInputWrapperClass!}">
 					<input type="text" id="code" name="code" class="${properties.kcInputClass!}" autofocus/>
@@ -21,6 +24,11 @@
 
 				<div id="kc-form-buttons" class="${properties.kcFormButtonsClass!}">
 					<input class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}" type="submit" value="${msg("doSubmit")}"/>
+                    <@buttonGroup.kw>
+                        <@button.kw color="primary" name="submit_sms_otp" type="submit">
+                            ${msg("doSubmit")}
+                        </@button.kw>
+                    </@buttonGroup.kw>
 				</div>
 			</div>
 		</form>
