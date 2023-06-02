@@ -1,6 +1,7 @@
 <#import "template.ftl" as layout>
 <#import "components/button.ftl" as button>
 <#import "components/button-group.ftl" as buttonGroup>
+<#import "components/link.ftl" as link>
 <@layout.registrationLayout displayInfo=true; section>
 	<#if section = "header">
 		${msg("smsAuthTitle",realm.displayName)}
