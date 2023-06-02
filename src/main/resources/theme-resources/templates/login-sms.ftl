@@ -6,7 +6,7 @@
 	<#if section = "header">
 		${msg("smsAuthTitle",realm.displayName)}
     <#elseif section = "info" >
-		<div class="text-primary-600">
+		<div class="text-solal-primary-600">
             ${msg("smsAuthInstruction")}
 		</div>
 	<#elseif section = "form">
