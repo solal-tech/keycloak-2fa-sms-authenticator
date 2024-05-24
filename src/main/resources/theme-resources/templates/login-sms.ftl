@@ -24,10 +24,7 @@
 			<div class="${properties.kcFormGroupClass!} ${properties.kcFormSettingClass!}">
 				<div id="kc-form-buttons" class="${properties.kcFormButtonsClass!}">
                     <@buttonGroup.kw>
-                        <@button.kw color="primary" name="resend_sms_otp" onclick="location.href = '${url.loginUrl}'">
-<#--                            <@link.kw color="primary" href=url.loginUrl size="small">-->
-<#--                                ${kcSanitize(msg("smsResend"))?no_esc}-->
-<#--                            </@link.kw>-->
+                        <@button.kw color="primary" name="resend_sms_otp" type="button" onclick="location.href = '${url.loginUrl}'">
                             ${msg("smsResend")}
                         </@button.kw>
                         <@button.kw color="primary" name="submit_sms_otp" type="submit">
