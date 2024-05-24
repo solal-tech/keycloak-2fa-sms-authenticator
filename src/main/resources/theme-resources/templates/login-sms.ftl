@@ -20,7 +20,7 @@
 				</div>
 			</div>
 			<div class="${properties.kcFormGroupClass!} ${properties.kcFormSettingClass!}">
-				<div id="kc-form-buttons" class="${properties.kcFormButtonsClass!}" style="display:flex;flex: 1">
+				<div id="kc-form-buttons" class="${properties.kcFormButtonsClass!}">
                     <@buttonGroup.kw>
                         <@button.kw color="primary" name="resend_sms_otp" type="button" onclick="location.href = '${url.loginUrl}'">
                             ${msg("smsResend")}
