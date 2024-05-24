@@ -13,8 +13,9 @@
 		<form id="kc-sms-code-login-form" class="${properties.kcFormClass!}" action="${url.loginAction}" method="post">
 			<div class="${properties.kcFormGroupClass!}">
 				<div class="prose">
-					<div class="lead">${msg("smsAuthLabel")}</div>
-					<div class="headings:h2 text-gray-500 mb-4">${msg("smsAuthInfo")}</div>
+					<div class="lead">${msg("smsAuthInstruction")}</div>
+<#--					<div class="lead">${msg("smsAuthLabel")}</div>-->
+<#--					<div class="headings:h2 text-gray-500 mb-4">${msg("smsAuthInfo")}</div>-->
 				</div>
 				<div class="${properties.kcInputWrapperClass!}">
 					<input type="text" id="code" name="code" class="${properties.kcInputClass!}" autofocus/>
@@ -23,6 +24,11 @@
 			<div class="${properties.kcFormGroupClass!} ${properties.kcFormSettingClass!}">
 				<div id="kc-form-buttons" class="${properties.kcFormButtonsClass!}">
                     <@buttonGroup.kw>
+                        <@button.kw color="primary" name="resend_sms_otp">
+                            <@link.kw color="secondary" href=url.loginUrl size="small">
+                                ${kcSanitize(msg("smsResend"))?no_esc}
+                            </@link.kw>
+                        </@button.kw>
                         <@button.kw color="primary" name="submit_sms_otp" type="submit">
                             ${msg("doSubmit")}
                         </@button.kw>
