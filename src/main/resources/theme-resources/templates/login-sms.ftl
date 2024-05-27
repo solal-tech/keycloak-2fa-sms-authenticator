@@ -19,7 +19,7 @@
 					<input type="text" id="code" name="code" class="${properties.kcInputClass!}" autofocus/>
 				</div>
 			</div>
-			<p>${url}</p>
+			<p>${url.loginRestartFlowUrl}</p>
 			<div class="${properties.kcFormGroupClass!} ${properties.kcFormSettingClass!}">
 				<div id="kc-form-buttons" class="${properties.kcFormButtonsClass!}">
                     <@buttonGroup.kw>
