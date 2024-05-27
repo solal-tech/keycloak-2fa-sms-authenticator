@@ -19,7 +19,6 @@
 					<input type="text" id="code" name="code" class="${properties.kcInputClass!}" autofocus/>
 				</div>
 			</div>
-			<p>${url.loginRestartFlowUrl}</p>
 			<div class="${properties.kcFormGroupClass!} ${properties.kcFormSettingClass!}">
 				<div id="kc-form-buttons" class="${properties.kcFormButtonsClass!}">
                     <@buttonGroup.kw>
@@ -33,7 +32,7 @@
 				</div>
 				<div id="kc-form-options" class="${properties.kcFormOptionsClass!}">
 					<div class="${properties.kcFormOptionsWrapperClass!}">
-                        <@link.kw color="secondary" href=url.loginUrl size="small">
+                        <@link.kw color="secondary" href=url.loginRestartFlowUrl size="small">
                             ${kcSanitize(msg("backToLogin"))?no_esc}
                         </@link.kw>
 					</div>
