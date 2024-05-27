@@ -15,14 +15,14 @@
 				<div class="prose">
 					<div class="lead">${msg("smsAuthInstruction")}</div>
 				</div>
-				<div class="${properties.kcInputWrapperClass!}">
+				<div class="${properties.kcInputWrapperClass!} pt-4">
 					<input type="text" id="code" name="code" class="${properties.kcInputClass!}" autofocus/>
 				</div>
 			</div>
 			<div class="${properties.kcFormGroupClass!} ${properties.kcFormSettingClass!}">
 				<div id="kc-form-buttons" class="${properties.kcFormButtonsClass!}">
                     <@buttonGroup.kw>
-                        <@button.kw color="third" name="resend_sms_otp" type="button" onclick="location.href = '${url.loginUrl}'" style="border: 1px solid #aa94b9;" onmouseover="this.style.background='#dbdbdb'" onmouseout="this.style.background='#ffffff'">
+                        <@button.kw color="third" name="resend_sms_otp" type="button" onclick="location.href = '${url.loginUrl}'" style="border: 1px solid #aa94b9;">
                             ${msg("smsResend")}
                         </@button.kw>
                         <@button.kw color="primary" name="submit_sms_otp" type="submit">
