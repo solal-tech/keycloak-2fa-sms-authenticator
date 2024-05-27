@@ -6,6 +6,9 @@
     <#case "secondary">
       <#assign colorClass="bg-solal-secondary-100 text-solal-secondary-600 focus:ring-solal-secondary-600 hover:bg-solal-secondary-200 hover:text-solal-secondary-900">
       <#break>
+  	<#case "third">
+      <#assign colorClass="bg-solal-primary-200 text-black focus:ring-solal-primary-600 hover:bg-solal-primary-700">
+      <#break>
     <#default>
       <#assign colorClass="bg-solal-primary-600 text-white focus:ring-solal-primary-600 hover:bg-solal-primary-700">
   </#switch>
